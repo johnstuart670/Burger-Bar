@@ -28,7 +28,7 @@ var orm = {
 	// define the orm.updateOne function as a function with three arguments and a callback function
 	updateOne: function (column, value, idToUpdate, callback) {
 		// build the queryURL 
-		var queryURL = "UPDATE burger_table set ?? =?? where ID = ??"
+		var queryURL = "UPDATE burger_table set (??) = (??) where ID = (??)"
 		// do the SQL connection, passing in the three arguments
 		connection.query("queryURL", [column, value, idToUpdate], function (error, results) {
 			// error handling
