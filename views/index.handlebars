@@ -7,8 +7,8 @@
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
-              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
-                <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+              <form action="/API/updateDevourTruthy/{{this.ID}}?_method=PUT" method="POST">
+                <button type="submit" class='notDevoured'> {{this.burger_name}}</button>
               </form>
             </div>
           {{/unless}}
@@ -18,7 +18,7 @@
       <div class="col s6">
         {{#each burgers}}
           {{#if this.devoured}}
-            <div class='burgerEaten'>
+            <div class='devoured'>
               <div>
                 {{this.burger_name}}
               </div>

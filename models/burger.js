@@ -14,8 +14,8 @@ var Burger = {
 	// conceptually why are we writing a model for this project?  It seems like an additional step to accomplish our items;
 
 	// update Function that taps into the updateOne function, passing in the arguments
-	update: function (callback, column, value, idToUpdate) {
-		orm.updateOne("burger_table", column, value, idToUpdate, function (results) {
+	update: function ( objectValues, condition, callback) {
+		orm.updateOne("burger_table", objectValues, condition, function (results) {
 			callback(results);
 		})
 	},

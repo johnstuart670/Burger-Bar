@@ -14,19 +14,21 @@ router.get("/", function(req, res){
 			var hbsObject = {
 				burgers: data
 			};
+			console.log(hbsObject);
 			// console.log(hbsObject);
 			res.render('index', hbsObject);
 		})});
 	
 
 // on the api post to the updateDevour + the  ID
-	router.put("/API/updateDevourTruthy/:id", function( req, res){
+	router.post("/API/updateDevourTruthy/:id", function( req, res){
+		console.log("req.params.id", req.params.id);
+
 	// run the Burger Update function which will update the devour column to truthy based on the id
-		Burger.update("devour", true, req.params.id, function(data){
-			// create an object for handlebars
-			var handlebarsObj = {
-				burgers : data
-			};
+		Burger.update({devoured: true}, {ID: req.params.id}, function(data){
+			// redirect to the index which then loops through items and updates the page
+			res.redirect('/')
+			;
 
 		});
 	});

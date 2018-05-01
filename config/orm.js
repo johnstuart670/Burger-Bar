@@ -1,5 +1,17 @@
 // import our connection info
 var connection = require('./connection.js');
+
+// Helper function for generating My SQL syntax
+function objToSql(ob) {
+	var arr = [];
+
+	for (var key in ob) {
+		arr.push(key + "=" + ob[key]);
+	}
+
+	return arr.toString();
+};
+
 // make an object to export to other modules with differnet functions as keys within the stuff
 var orm = {
 	// function that will return all the items in our array but allows us to pass in a callback
@@ -26,11 +38,17 @@ var orm = {
 		})
 	},
 	// define the orm.updateOne function as a function with three arguments and a callback function
-	updateOne: function (tableSelect, column, value, idToUpdate, callback) {
+	updateOne: function (tableSelect, objectValues, condition, callback) {
 		// build the queryURL 
-		var queryURL = "UPDATE " + tableSelect +  "set (??) = (??) where ID = (??)"
+console.log("My values??", objectValues, condition);
+// build our queryURL using the passed in values and the helper function that converts the objects we pass in into strings and concatonates
+		var queryURL = "UPDATE " + tableSelect +  " SET ";
+		queryURL += objToSql(objectValues) 
+		queryURL += " WHERE ";
+		queryURL += objToSql(condition);
+		queryURL += ";"
 		// do the SQL connection, passing in the three arguments
-		connection.query("queryURL", [tableSelect, column, value, idToUpdate], function (error, results) {
+		connection.query(queryURL, function (error, results) {
 			// error handling
 			if (error) {
 				return (console.log(error))
