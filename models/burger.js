@@ -1,5 +1,4 @@
-// export our object we're building 
-module.exports = Burger;
+
 
 // import the ORM
 var orm = require("../config/orm.js");
@@ -7,7 +6,7 @@ var orm = require("../config/orm.js");
 // build an object to export items on.
 var Burger = {
 	// all function that runs the orm select * query with a passed in callback function
-	all: function (callback) {
+	getAll: function (callback) {
 		orm.selectAll("burger_table", function (results) {
 			callback(results);
 		});
@@ -25,4 +24,8 @@ var Burger = {
 		orm.insertOne("burger_table", "burger_name", "devoured", new_burger_name, false, function(results){
 			callback(results)
 		});
+}
 };
+
+// export our object we're building 
+module.exports = Burger;
