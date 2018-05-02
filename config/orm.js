@@ -40,15 +40,13 @@ var orm = {
 	// define the orm.updateOne function as a function with three arguments and a callback function
 	updateOne: function (tableSelect, objectValues, condition, callback) {
 		// build the queryURL 
-console.log("My values??", objectValues, condition);
+// console.log("My values??", JSON.parse(objectValues), JSON.stringify(condition));;
+console.log("My objects", objectValues, condition)
 // build our queryURL using the passed in values and the helper function that converts the objects we pass in into strings and concatonates
-		var queryURL = "UPDATE " + tableSelect +  " SET ";
-		queryURL += objToSql(objectValues) 
-		queryURL += " WHERE ";
-		queryURL += objToSql(condition);
-		queryURL += ";"
+		var queryURL = "UPDATE " + tableSelect +  "  SET ? WHERE ?;";
+	
 		// do the SQL connection, passing in the three arguments
-		connection.query(queryURL, function (error, results) {
+		connection.query(queryURL, [objectValues, condition], function (error, results) {
 			// error handling
 			if (error) {
 				return (console.log(error))
@@ -58,6 +56,6 @@ console.log("My values??", objectValues, condition);
 		})
 	}
 
-}
+};
 
 module.exports = orm;

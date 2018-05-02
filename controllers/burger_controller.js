@@ -25,7 +25,7 @@ router.get("/", function(req, res){
 		console.log("req.params.id", req.params.id);
 
 	// run the Burger Update function which will update the devour column to truthy based on the id
-		Burger.update({devoured: true}, {ID: req.params.id}, function(data){
+		Burger.update({devoured : true}, {ID : parseInt(req.params.id)}, function(data){
 			// redirect to the index which then loops through items and updates the page
 			res.redirect('/')
 			;
