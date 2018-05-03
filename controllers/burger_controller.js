@@ -33,18 +33,13 @@ router.get("/", function(req, res){
 		});
 	});
 
-	// on the api post to the updateDevour + the  ID
-	router.put("/API/updateDevourFalsey/:id", function( req, res){
-		// run the Burger Update function which will update the devour column to truthy based on the id
-			Burger.update("devour", false, req.params.id, function(data){
-				// create an object for handlebars
-			});
-		});
 
 // when the user routes through the API/newEntry
 router.post("/API/newEntry", function( req, res){
-			Burger.insert(req.body.new_burger_name, function(data){
-				// create an object to handle in handlebars
+	// pass the new info into the callback function in burger.js
+			Burger.insert(req.body.burger_name, false, function(data){
+				// redirects to the basic page load so that we get a refresh
+				res.redirect('/')
 			})
 		});
 

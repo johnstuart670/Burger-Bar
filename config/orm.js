@@ -21,38 +21,35 @@ var orm = {
 			if (error) {
 				return (console.log("There was an error"))
 			}
-			 callback(results);
+			callback(results);
 		})
 	},
 	// function that will add 1 row to the mySQL database using 4 arguments and a callback
-	insertOne: function (tableSelect, column1, column2, value1, value2, callback) {
-		var queryURL = "INSERT INTO " + tableSelect +  " (??, ??) VALUES (??, ??);"
+	insertOne: function (tableSelect, value1, value2, callback) {
+		var queryURL = "INSERT INTO `" + tableSelect + "` (`burger_name`, `devoured`) VALUES (?, ?) ;"
 		// do the SQL post, passing in the four arguments
-		connection.query("queryURL", [tableSelect, column1, column2, value1, value2], function (error, results) {
+		connection.query(queryURL, [value1, value2], function (error, results) {
 			// error handling
 			if (error) {
 				return (console.log(error))
 			};
 			// do the callback function on the results of the query
-			 callback(results);
+			callback(results);
 		})
 	},
 	// define the orm.updateOne function as a function with three arguments and a callback function
 	updateOne: function (tableSelect, objectValues, condition, callback) {
-		// build the queryURL 
-// console.log("My values??", JSON.parse(objectValues), JSON.stringify(condition));;
-console.log("My objects", objectValues, condition)
-// build our queryURL using the passed in values and the helper function that converts the objects we pass in into strings and concatonates
-		var queryURL = "UPDATE " + tableSelect +  "  SET ? WHERE ?;";
-	
-		// do the SQL connection, passing in the three arguments
+		// build our queryURL using the passed in table Value 
+		var queryURL = "UPDATE " + tableSelect + "  SET ? WHERE ?;";
+
+		// do the SQL connection, passing in the two arguments 
 		connection.query(queryURL, [objectValues, condition], function (error, results) {
 			// error handling
 			if (error) {
 				return (console.log(error))
 			};
 			// do the callback function on the results of the query
-			 callback(results);
+			callback(results);
 		})
 	}
 

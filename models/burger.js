@@ -20,8 +20,8 @@ var Burger = {
 		})
 	},
 	// insert Function that taps into the insertOne function in the orm and passes arguments into it;
-	insert: function(new_burger_name, callback){
-		orm.insertOne("burger_table", "burger_name", "devoured", new_burger_name, false, function(results){
+	insert: function(value1, value2, callback){
+		orm.insertOne("burger_table", value1, value2, function(results){
 			callback(results)
 		});
 }
