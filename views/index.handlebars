@@ -1,20 +1,23 @@
-<h1>Eat-Da-Burger!</h1>
-
 <main>
-  <div class="container">
+	{{!-- start new container --}}
+  <div class="container burgers">
     <div class="row">
       <div class="col s6">
+				{{!-- this is the area where the burgers that have not been devoured go.  --}}
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
+							{{!-- they have an api call on them b/c they are a form --}}
               <form action="/API/updateDevourTruthy/{{this.ID}}?_method=PUT" method="POST">
+							{{!-- the button submits to move the burger over and update in the database --}}
+							{{!-- also it passes in the object this.burger_name for each iteration in the db that is rendered on the page --}}
                 <button type="submit" class='notDevoured'> {{this.burger_name}}</button>
               </form>
             </div>
           {{/unless}}
         {{/each}}
       </div>
-
+{{!-- this is the part of the page this will render the devoured burgers --}}
       <div class="col s6">
         {{#each burgers}}
           {{#if this.devoured}}
@@ -29,14 +32,3 @@
     </div>
   </div>
 </main>
-
-<h2>Add A Burger Option</h2>
-
-<div class="row">
-  <div class="col s12">
-    <form action="/API/newEntry" method="POST">
-      <input type="text" id="name" name="burger_name" placeholder="Enter a Burger Idea Here">
-      <button type="submit" class="addBurgerButton">Add The Burger</button>
-    </form>
-  </div>
-</div>

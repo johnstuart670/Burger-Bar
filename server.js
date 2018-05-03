@@ -3,11 +3,12 @@
 // express for routing:
 var express = require("express");
 var app = express();
+var path = require('path');
 
 // body parser to allow for information to be passed in from the user of the app
 var bodyParser = require("body-parser");
 
-app.use(express.static("public"));
+app.use('/static', express.static(path.join(__dirname, '/public')));
 
 // parse application/x-www-form-urlencoded 
 app.use(bodyParser.urlencoded({ extended: true }));
