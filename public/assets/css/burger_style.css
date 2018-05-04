@@ -9,9 +9,14 @@ body {
  display: flex;
  min-height: 100vh;
  flex-direction: column;
- background-color: rgb(99, 23, 23);
+ background-color:white;
 };
 
-.row.burgerHeaders {
-margin-top: 15px;
-}
+.burgerHeaders {
+margin-top: 25px;
+};
+
+html {
+text-align: center;
+font-family: 'Lora', serif;
+};

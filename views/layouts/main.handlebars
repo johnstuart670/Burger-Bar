@@ -6,7 +6,9 @@
 
 	<!-- Bootstrap for some styling -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> {{!-- my css stuff for styling --}}
-<link rel="stylesheet" href="/assets/css/burger_style.css"  >
+	<link rel="stylesheet" href="../assets/css/burger_style.css">
+	{{!-- stuff for fonts --}}
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
 
 	<title>Pretentious and OverPriced Burger Bar Concept</title>
 </head>
@@ -27,7 +29,7 @@
 		<div class="row">
 			<div class="col s12">
 				<form action="/API/newEntry" method="POST">
-					<input type="text" id="name" name="burger_name" placeholder="Enter Burger Idea Here">
+					<input type="text" id="name" name="burger_name" placeholder="Enter Burger Idea Here" class = "col s8">
 					<button type="submit" class="addBurgerButton">Add The Burger</button>
 				</form>
 			</div>
@@ -35,15 +37,13 @@
 	</div>
 	{{!-- some header stuff for the items in the page below --}}
 	<div class="container">
-		<div class="row">
-			<h3 class="col s6"> BURGERS THAT YOU CAN ORDER</h3>
-			<h3 class="col s6"> BURGERS THAT YOU ORDERED ALREADY</h3>
-
+		<div class="row burgerHeaders">
+			<h3 class="col s6 burgerHeaders"> BURGERS THAT YOU CAN ORDER</h3>
+			<h3 class="col s6 burgerHeaders"> BURGERS THAT YOU ORDERED ALREADY</h3>
 		</div>
 	</div>
 
-	{{!-- here we use the handlebars objects to render on the page from the index.handlebars item --}} 
-	{{{ body }}}
+	{{!-- here we use the handlebars objects to render on the page from the index.handlebars item --}} {{{ body }}}
 
 </body>
 
