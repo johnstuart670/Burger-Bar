@@ -2,7 +2,7 @@
 	{{!-- start new container --}}
   <div class="container burgers">
     <div class="row mt-2">
-      <div class="col s6 brown lighten-3 mx-auto">
+      <div class="col s6 teal darken-4 mx-auto">
 				{{!-- this is the area where the burgers that have not been devoured go.  --}}
         {{#each burgers}}
           {{#unless this.devoured}}
@@ -18,7 +18,7 @@
         {{/each}}
       </div>
 {{!-- this is the part of the page this will render the devoured burgers --}}
-      <div class="col s6 blue-grey lighten-3 mx-auto">
+      <div class="col s6 teal darken-4 mx-auto px-1">
         {{#each burgers}}
           {{#if this.devoured}}
             <button disabled class='devoured btn my-2 orange darken-4 btn-block text-center' >

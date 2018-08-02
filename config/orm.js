@@ -26,7 +26,7 @@ var orm = {
 	},
 	// function that will add 1 row to the mySQL database using 4 arguments and a callback
 	insertOne: function (tableSelect, value1, value2, callback) {
-		var queryURL = INSERT INTO `" + tableSelect + "` (`burger_name`, `devoured`) VALUES (?, ?) ;"
+		var queryURL = "INSERT INTO `" + tableSelect + "` (`burger_name`, `devoured`) VALUES (?, ?) ;"
 		// do the SQL post, passing in the four arguments
 		connection.query(queryURL, [value1, value2], function (error, results) {
 			// error handling
