@@ -1,22 +1,30 @@
-html {
-	background-color: #FFC04C;
+html, body {
+	height: 100%;
 }
 
 body {
 	width: 75%;
- margin: 0 auto; 
+	margin: 0 auto;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background-color: white;
+}
 
- display: flex;
- min-height: 100vh;
- flex-direction: column;
- background-color:white;
-};
-
-.burgerHeaders {
-margin-top: 25px;
-};
-
+;
 body {
-text-align: center;
-font-family: 'Lora', serif;
-};
+	text-align: center;
+	font-family: 'Lora', serif;
+}
+;
+
+;
+.bg {
+	background-image: url("/assets/images/cafe.jpeg.jpg");
+	/* Full height */
+	height: 100%;
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

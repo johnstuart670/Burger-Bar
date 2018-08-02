@@ -4,47 +4,59 @@
 <head>
 	<meta charset="UTF-8">
 
-	<!-- Bootstrap for some styling -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> {{!-- my css stuff for styling --}}
-	<link rel="stylesheet" href="../assets/css/burger_style.css">
-	{{!-- stuff for fonts --}}
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css" rel="stylesheet">
 
-	<title>Pretentious and OverPriced Burger Bar Concept</title>
+	<link rel="stylesheet" href="../assets/css/burger_style.css"> {{!-- stuff for fonts --}}
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+
+	<title>Burger Bar Concept</title>
 </head>
 
-<body>
-	<div class="container">
-		<div class="row">
-			<h2>Burger Bar Concept</h2>
+<body class="bg">
+	<div class="container bg">
+		<div class="row text-center">
+			<h2 class="text-center mx-auto">Pretentious and OverPriced Burger Bar Concept</h2>
 		</div>
 		<div class="row">
-			<p>Please see our fine menu of burgers below. You can click it to move it to right, indicating that you have ordered it!</p>
-			<p>You can also add a burger concept to the menu and if we like it, we may just use it later! (without paying you, sorry)</p>
+			<p class = "mx-auto text-center">Please see our fine menu of burgers below. You can click it to move it to right, indicating that you have ordered it!
+				You can also add a burger concept to the menu and if we like it, we may just use it later! (without paying you, sorry)</p>
 		</div>
 		{{!-- end the descriptor container --}}
 	</div>
 	{{!-- start the container for the add a burger area --}}
-	<div class="container addBurger">
+	<div class="container addBurger my-1">
 		<div class="row">
 			<div class="col s12">
 				<form action="/API/newEntry" method="POST">
-					<input type="text" id="name" name="burger_name" placeholder="Enter Burger Idea Here" class = "col s8">
-					<button type="submit" class="addBurgerButton">Add The Burger</button>
+					<input type="text" id="name" name="burger_name" placeholder="Enter Burger Idea Here" class="col s8 pb-2 my-2 text-center">
+					<button type="submit" class="addBurgerButton btn amber  btn-block">Add The Burger</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	{{!-- some header stuff for the items in the page below --}}
 	<div class="container">
-		<div class="row burgerHeaders">
-			<h3 class="col s6 burgerHeaders"> BURGERS THAT YOU CAN ORDER</h3>
-			<h3 class="col s6 burgerHeaders"> BURGERS THAT YOU ORDERED ALREADY</h3>
+		<div class="row my-2">
+			<h3 class="col s6 my-2 text-center"> BURGERS THAT YOU CAN ORDER</h3>
+			<h3 class="col s6 my-2 text-center"> BURGERS THAT YOU ORDERED ALREADY</h3>
 		</div>
 	</div>
 
 	{{!-- here we use the handlebars objects to render on the page from the index.handlebars item --}} {{{ body }}}
 
 </body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
 
 </html>
