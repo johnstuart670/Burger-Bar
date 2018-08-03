@@ -41,10 +41,20 @@ var orm = {
 	updateOne: function (tableSelect, objectValues, condition, callback) {
 		// build our queryURL using the passed in table Value 
 		var queryURL = "UPDATE " + tableSelect + "  SET ? WHERE ?;";
-
+		console.log(queryURL);
 		// do the SQL connection, passing in the two arguments 
 		connection.query(queryURL, [objectValues, condition], function (error, results) {
 			// error handling
+			if (error) {
+				return (console.log(error))
+			};
+			// do the callback function on the results of the query
+			callback(results);
+		})
+	},
+	reset: function (callback ) {
+		let queryURL = "UPDATE burger_table SET DEVOURED = false;"
+		connection.query(queryURL, function (error, results) {
 			if (error) {
 				return (console.log(error))
 			};
